@@ -4,6 +4,12 @@ on:
   workflow_dispatch:
 
 
+env:
+  AZURE_RESOURCE_GROUP: "LAB3GPTDEVRG01"
+  AZURE_ML_WORKSPACE: "labtestml02"
+  AZURE_SUBSCRIPTION_ID: "20dd0807-4bab-40e8-a83e-75a1f4548c29"
+
+
 jobs:
   create_and_run_flow:
     runs-on: ubuntu-latest
@@ -27,11 +33,11 @@ jobs:
 
     - name: Set Azure subscription
       run: |
-        az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        az account set --subscription ${{ env.AZURE_SUBSCRIPTION_ID }}
 
     - name: Set Azure ML defaults
       run: |
-        az configure --defaults group=${{ secrets.AZURE_RESOURCE_GROUP }} workspace=${{ secrets.AZURE_ML_WORKSPACE }}
+        az configure --defaults group=${{ env.AZURE_RESOURCE_GROUP }} workspace=${{ env.AZURE_ML_WORKSPACE }}
 
     - name: Deploy to Azure ML Studio - labmltest02
       run: |
@@ -46,8 +52,8 @@ jobs:
         # Deploy the flow using az prompt-flow
         pfazure flow create \
           --flow . \
-          --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
-          --workspace-name ${{ secrets.AZURE_ML_WORKSPACE }} \
+          --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+          --workspace-name ${{ env.AZURE_ML_WORKSPACE }} \
           --set display_name=woodside_promptflow_rag01     
 
 
@@ -64,8 +70,8 @@ jobs:
         # Deploy the flow using az prompt-flow
         pfazure flow create \
           --flow . \
-          --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
-          --workspace-name ${{ secrets.AZURE_ML_WORKSPACE }} \
+          --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+          --workspace-name ${{ env.AZURE_ML_WORKSPACE }} \
           --set display_name=eval-groundedness
 
     - name: Deploy to Azure ML Studio - eval-single-turn-metrics
@@ -81,8 +87,8 @@ jobs:
         # Deploy the flow using az prompt-flow
         pfazure flow create \
           --flow . \
-          --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
-          --workspace-name ${{ secrets.AZURE_ML_WORKSPACE }} \
+          --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+          --workspace-name ${{ env.AZURE_ML_WORKSPACE }} \
           --set display_name=eval-single-turn-metrics
 
     - name: Deploy to Azure ML Studio - eval-perceived-intelligence
@@ -98,8 +104,8 @@ jobs:
         # Deploy the flow using az prompt-flow
         pfazure flow create \
           --flow . \
-          --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
-          --workspace-name ${{ secrets.AZURE_ML_WORKSPACE }} \
+          --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+          --workspace-name ${{ env.AZURE_ML_WORKSPACE }} \
           --set display_name=eval-perceived-intelligence
 
     - name: Deploy to Azure ML Studio - eval-qna-non-rag
@@ -115,6 +121,6 @@ jobs:
         # Deploy the flow using az prompt-flow
         pfazure flow create \
           --flow . \
-          --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
-          --workspace-name ${{ secrets.AZURE_ML_WORKSPACE }} \
+          --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+          --workspace-name ${{ env.AZURE_ML_WORKSPACE }} \
           --set display_name=eval-qna-non-rag

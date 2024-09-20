@@ -2,7 +2,9 @@ name: Deploy the promptflow Template
 
 on:
   push:
-    branches: [ feature/promptflow-run-eval-v1 ]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   create_and_run_flow:

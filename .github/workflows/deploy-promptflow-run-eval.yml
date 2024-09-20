@@ -1,8 +1,14 @@
 name: Run and Eval promptflow
 
 on:
-  push:
-    branches: [ feature/test-v1 ]
+  workflow_dispatch:
+
+
+env:
+  AZURE_RESOURCE_GROUP: "LAB3GPTDEVRG01"
+  AZURE_ML_WORKSPACE: "labmltest02"
+  AZURE_SUBSCRIPTION_ID: "20dd0807-4bab-40e8-a83e-75a1f4548c29"
+
 
 jobs:
   create_and_run_flow:
@@ -27,11 +33,11 @@ jobs:
 
     - name: Set Azure subscription
       run: |
-        az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        az account set --subscription ${{ env.AZURE_SUBSCRIPTION_ID }}
 
     - name: Set Azure ML defaults
       run: |
-        az configure --defaults group=${{ secrets.AZURE_RESOURCE_GROUP }} workspace=${{ secrets.AZURE_ML_WORKSPACE }}
+        az configure --defaults group=${{ env.AZURE_RESOURCE_GROUP }} workspace=${{ env.AZURE_ML_WORKSPACE }}
 
     - name: Install dependencies
       run: |

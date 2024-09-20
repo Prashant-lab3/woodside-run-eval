@@ -6,7 +6,6 @@ echo "run name: $run_name"
 #pfazure run create -f promptflow/rag_job.yaml --name $run_name --stream 01
 
 #pfazure run create --flow azureml:3461e079-6aa8-480d-9dd6-0c98e7c2e038 --data data/prompt_input/questions.jsonl --column-mapping chat_history='${data.chat_history}' question='${data.question}' --workspace-name dev01-ml --resource-group dev01 --name $run_name --stream
-pip install promptflow-azure
 
 # evaluate the run eval-groundedness
 #pfazure run create --flow src/evaluation/eval-groundedness --data data/prompt_input/eval-groundedness.jsonl \

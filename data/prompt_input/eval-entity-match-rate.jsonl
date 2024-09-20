@@ -1,0 +1,3 @@
+{"entities": ["Managing Director", "Board of Directors"], "ground_truth": "\"Managing Director, Board of Directors, Director HR/ Admin & Finance\""}
+{"entities": ["Safety Officer", "HR Department", "Finance Manager"], "ground_truth": "\"Safety Officer, HR Department, Finance Manager\""}
+{"entities": ["Training & Development", "Performance Management System"], "ground_truth": "\"Training & Development, Performance Management System, Recruitment & Selection\""}

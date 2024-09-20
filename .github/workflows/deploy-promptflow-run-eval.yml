@@ -1,0 +1,48 @@
+name: Run and Eval promptflow
+
+on:
+  push:
+    branches: [ feature/test-v1 ]
+
+jobs:
+  create_and_run_flow:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.11'
+
+    - name: Install Azure CLI and ML extension
+      run: |
+        curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+        az extension add -n ml -y
+
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Set Azure subscription
+      run: |
+        az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+    - name: Set Azure ML defaults
+      run: |
+        az configure --defaults group=${{ secrets.AZURE_RESOURCE_GROUP }} workspace=${{ secrets.AZURE_ML_WORKSPACE }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install promptflow
+        pip install promptflow.tools
+        pip install keyrings.alt
+        pip install azure-search-documents     
+
+    - name: Make script executable
+      run: chmod 775 ./scripts/run_and_eval.sh
+    
+    - name: Run script
+      run: ./scripts/run_and_eval.sh

@@ -14,7 +14,7 @@ echo "run name: $run_name"
 
 pfazure run create --flow azureml:458c9b6c-f7f2-43ab-956f-092f89856b2f --data data/prompt_input/eval-groundedness.jsonl \
 --column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' \
---workspace-name dev01-ml --resource-group dev01 --name "eval-groundedness-"$run_name --stream
+--workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --name "eval-groundedness-"$run_name --stream
 
 #pfazure run create --flow azureml:68463d01-c901-468b-833f-04fd96300511 --data data/prompt_input/eval-groundedness.jsonl \
 #--column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' \

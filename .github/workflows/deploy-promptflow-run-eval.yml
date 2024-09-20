@@ -46,6 +46,7 @@ jobs:
         pip install promptflow.tools
         pip install keyrings.alt
         pip install azure-search-documents     
+        pip install promptflow-azure
 
     - name: Make script executable
       run: chmod 775 ./scripts/run_and_eval.sh

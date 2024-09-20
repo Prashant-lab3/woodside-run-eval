@@ -13,7 +13,7 @@ echo "run name: $run_name"
 #--column-mapping question='${data.question}' context='${data.context}' answer='${run.outputs.output}' \
 #--run $run_name --stream
 
-pfazure run create --flow azureml:557ebd8e-a04c-4384-b7c1-90a3213bdab7 --data data/prompt_input/eval-groundedness.jsonl \
+pfazure run create --flow azureml:458c9b6c-f7f2-43ab-956f-092f89856b2f --data data/prompt_input/eval-groundedness.jsonl \
 --column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' \
 --workspace-name dev01-ml --resource-group dev01 --name "eval-groundedness-"$run_name --stream
 
@@ -22,17 +22,17 @@ pfazure run create --flow azureml:557ebd8e-a04c-4384-b7c1-90a3213bdab7 --data da
 #--workspace-name dev01-ml --resource-group dev01 --name "eval-groundedness-"$run_name --stream
 
 # evaluate the run eval-single-turn-metrics
-pfazure run create --flow azureml:68463d01-c901-468b-833f-04fd96300511 --data data/prompt_input/eval-single-turn-metrics.jsonl \
+pfazure run create --flow azureml:b7d10f50-d7d1-49d3-94a4-84a9c77cd789 --data data/prompt_input/eval-single-turn-metrics.jsonl \
 --column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' ground_truth='${data.ground_truth}' \
 --name "eval-single-turn-metrics-"$run_name --stream
 
 
 # evaluate the run eval-perceived-intelligence
-pfazure run create --flow azureml:471c13f0-bdc3-4bab-a4d9-f296a36f5131 --data data/prompt_input/eval-perceived-intelligence.jsonl \
+pfazure run create --flow azureml:716c7b97-66f5-4cd1-bafd-ff28cb5fcacc --data data/prompt_input/eval-perceived-intelligence.jsonl \
 --column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' \
 --name "eval-perceived-intelligence"$run_name --stream
 
 # evaluate the run eval-qna-non-rag
-pfazure run create --flow azureml:894d65d1-d89b-4111-a86d-5bfa1d06a416 --data data/prompt_input/eval-qna-non-rag.jsonl \
+pfazure run create --flow azureml:10e07953-77ca-4c82-bad1-d266713a6605 --data data/prompt_input/eval-qna-non-rag.jsonl \
 --column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' ground_truth='${data.ground_truth}' \
 --name "eval-qna-non-rag"$run_name --stream

@@ -1,10 +1,8 @@
 name: Deploy the promptflow Template
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
+
 
 jobs:
   create_and_run_flow:

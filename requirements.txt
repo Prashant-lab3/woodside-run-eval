@@ -1,0 +1,6 @@
+azure-ai-ml
+azureml-core
+promptflow
+PyPDF2
+openai
+chromadb

@@ -1,0 +1,65 @@
+inputs:
+  question:
+    type: string
+    default: How to use SDK V2?
+    is_chat_input: false
+outputs:
+  output:
+    type: string
+    reference: ${answer_the_question_with_context.output}
+    evaluation_only: false
+    is_chat_output: false
+nodes:
+- name: lookup
+  type: python
+  source:
+    type: package
+    tool: promptflow_vectordb.tool.common_index_lookup.search
+  inputs:
+    mlindex_content: "embeddings:\n  api_base: https://dev01-openai.openai.azure.com/\n  api_type: azure\n  api_version: '2024-02-01'\n  batch_size: '1'\n  connection:\n    id: /subscriptions/91d0a6b4-cd95-4f94-af01-7d0929c9f1ab/resourceGroups/dev01/providers/Microsoft.MachineLearningServices/workspaces/dev01-ml/connections/Azure_OpenAI_Connection\n  connection_type: workspace_connection\n  deployment: text-embedding-ada-002\n  dimension: 1536\n  kind: open_ai\n  model: text-embedding-ada-002\n  schema_version: '2'\nindex:\n  api_version: '2023-11-01'\n  connection:\n    id: /subscriptions/91d0a6b4-cd95-4f94-af01-7d0929c9f1ab/resourceGroups/dev01/providers/Microsoft.MachineLearningServices/workspaces/dev01-ml/connections/Azure_AI_Search_connection\n  connection_type: workspace_connection\n  endpoint: https://dev01-search-service.search.windows.net\n  engine: azure-sdk\n  field_mapping:\n    content: content\n    embedding: contentVector\n    metadata: meta_json_string\n  index: hr\n  kind: acs\n  semantic_configuration_name: azureml-default\n"
+    queries: "${inputs.question}"
+    query_type: "Keyword"
+    top_k: 2
+  aggregation: false
+- name: generate_prompt_context
+  type: python
+  source:
+    type: code
+    path: generate_prompt_context.py
+  inputs:
+    search_result: "${lookup.output}"
+  aggregation: false
+- name: answer_the_question_with_context
+  type: llm
+  source:
+    type: code
+    path: answer_the_question_with_context.jinja2
+  inputs:
+    deployment_name: "gpt-4o"
+    temperature: 0
+    top_p: 1
+    max_tokens: 1000
+    response_format:
+      type: text
+    presence_penalty: 0
+    frequency_penalty: 0
+    suffix: ""
+    echo: false
+    best_of: 1
+    prompt_text: "${Prompt_variants.output}"
+  api: chat
+  provider: AzureOpenAI
+  connection: Azure_OpenAI_Connection
+  module: promptflow.tools.aoai
+  aggregation: false
+- name: Prompt_variants
+  type: prompt
+  source:
+    type: code
+    path: Prompt_variants__variant_1.jinja2
+  inputs:
+    contexts: "${generate_prompt_context.output}"
+    question: "${inputs.question}"
+  aggregation: false
+environment:
+  python_requirements_txt: requirements.txt

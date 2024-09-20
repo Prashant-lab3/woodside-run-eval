@@ -1,0 +1,61 @@
+id: qna_with_your_own_data_using_faiss_index
+name: QnA with Your Own Data Using Faiss Index
+inputs:
+  question:
+    type: string
+    default: What's AML SDK V2? Should I use V1 or V2?
+    is_chat_input: false
+outputs:
+  output:
+    type: string
+    reference: ${answer_the_question_with_context.output}
+nodes:
+- name: generate_embedding
+  type: python
+  source:
+    type: package
+    tool: promptflow.tools.embedding.embedding
+  inputs:
+    connection: Azure_OpenAI_Connection
+    deployment_name: text-embedding-ada-002
+    input: ${inputs.question}
+  use_variants: false
+- name: lookup
+  type: python
+  source:
+    type: package
+    tool: promptflow_vectordb.tool.faiss_index_lookup.FaissIndexLookup.search
+  inputs:
+    path: https://dev01ml2406763382.blob.core.windows.net/azureml-blobstore-71ff3bf4-396c-4965-afd1-3fcf3ffee12b/azureml/2dfd86d6-3339-4de7-a231-af5c7ff580ad/index/
+    vector: ${generate_embedding.output}
+    top_k: 3
+  use_variants: false
+- name: format_context
+  type: python
+  source:
+    type: code
+    path: format_context.py
+  inputs:
+    search_result: ${lookup.output}
+  use_variants: false
+- name: answer_the_question_with_context
+  type: llm
+  source:
+    type: code
+    path: answer_the_question_with_context.jinja2
+  inputs:
+    deployment_name: gpt-4o
+    temperature: 0.5
+    top_p: 1
+    response_format:
+      type: text
+    question: ${inputs.question}
+    contexts: ${format_context.output}
+  provider: AzureOpenAI
+  connection: Azure_OpenAI_Connection
+  api: chat
+  module: promptflow.tools.aoai
+  use_variants: false
+node_variants: {}
+environment:
+  python_requirements_txt: requirements.txt

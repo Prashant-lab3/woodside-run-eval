@@ -1,0 +1,11 @@
+$schema: https://azuremlschemas.azureedge.net/latest/flow.schema.json
+name: qna_with_your_own_data_using_faiss_index
+display_name: QnA with Your Own Data Using Faiss Index
+type: standard
+path: ./flow.dag.yaml
+description: Q&A with GPT3.5 using domain knowledge from Faiss index to make the answer more grounded
+properties:
+  promptflow.stage: prod
+  promptflow.details.type: markdown
+  promptflow.details.source: README.md
+  promptflow.batch_inputs: samples.json

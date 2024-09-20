@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# IDEs
+.vscode/
+.idea/
+
+# Azure ML
+.amlignore
+.amltmp
+
+# Misc
+*.log
+*.sqlite3
+*.README.md

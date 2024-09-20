@@ -259,5 +259,5 @@ nodes:
     question: ${inputs.question}
     context: ${inputs.context}
     temperature: 0
-  connection: lab3connectionopenai-pf
+  connection: azure_open_ai_connection
   api: chat

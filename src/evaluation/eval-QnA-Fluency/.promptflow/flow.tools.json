@@ -1,0 +1,46 @@
+{
+    "package": {},
+    "code": {
+        "fluency_score.jinja2": {
+            "type": "llm",
+            "inputs": {
+                "question": {
+                    "type": [
+                        "string"
+                    ]
+                },
+                "answer": {
+                    "type": [
+                        "string"
+                    ]
+                }
+            },
+            "description": "This is a llm tool",
+            "is_builtin": false
+        },
+        "concat_scores.py": {
+            "type": "python",
+            "inputs": {
+                "fluency_score": {
+                    "type": [
+                        "string"
+                    ]
+                }
+            },
+            "function": "concat_results",
+            "is_builtin": false
+        },
+        "aggregate_variants_results.py": {
+            "type": "python",
+            "inputs": {
+                "results": {
+                    "type": [
+                        "object"
+                    ]
+                }
+            },
+            "function": "aggregate_variants_results",
+            "is_builtin": false
+        }
+    }
+}

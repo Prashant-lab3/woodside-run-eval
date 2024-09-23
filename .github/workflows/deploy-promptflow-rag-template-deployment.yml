@@ -42,22 +42,22 @@ jobs:
     - name: Deploy to Azure ML Studio - labmltest02
       run: |
         
-        python -m pip install --upgrade pip                
-        pip install promptflow-azure
+        #python -m pip install --upgrade pip                
+        #pip install promptflow-azure
         # Navigate to the rag_flow_0 directory run05
-        cd src/Woodside_Prompltflow_RagQnA
+        #cd src/Woodside_Prompltflow_RagQnA
         # Install Python dependencies specific to woodside_promptflow_rag01
-        pip install -r requirements.txt
+        #pip install -r requirements.txt
 
 
         #creating Main FLow 
       
         # Deploy the flow using az prompt-flow
-        pfazure flow create \
-          --flow . \
-          --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
-          --workspace-name ${{ env.AZURE_ML_WORKSPACE }} \
-          --set display_name=woodside_promptflow_ragQnA01     
+        #pfazure flow create \
+        #  --flow . \
+        #  --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+        #  --workspace-name ${{ env.AZURE_ML_WORKSPACE }} \
+        #  --set display_name=woodside_promptflow_ragQnA01     
 
 
     - name: Deploy to Azure ML Studio - eval-groundedness

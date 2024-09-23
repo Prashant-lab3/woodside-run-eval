@@ -18,11 +18,11 @@ pfazure run create --flow azureml:f7918996-180d-44bd-886c-9d79658bfd3e --data da
 --column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' \
 --workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --name "eval-groundedness-"$run_name --stream
 
- pfazure run show-metrics --name "eval-groundedness-"$run_name --workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --subscription 20dd0807-4bab-40e8-a83e-75a1f4548c29
+ pfazure run show-metrics --name eval-groundedness-run_20240923_204537 --workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --subscription 20dd0807-4bab-40e8-a83e-75a1f4548c29
 
- pfazure run show-details --name "eval-groundedness-"$run_name --workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --subscription 20dd0807-4bab-40e8-a83e-75a1f4548c29
+ pfazure run show-details --name eval-groundedness-run_20240923_204537 --workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --subscription 20dd0807-4bab-40e8-a83e-75a1f4548c29
 
- pfazure run visualize --name "eval-groundedness-"$run_name --workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --subscription 20dd0807-4bab-40e8-a83e-75a1f4548c29
+ pfazure run visualize --name eval-groundedness-run_20240923_204537 --workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --subscription 20dd0807-4bab-40e8-a83e-75a1f4548c29
 
 
 

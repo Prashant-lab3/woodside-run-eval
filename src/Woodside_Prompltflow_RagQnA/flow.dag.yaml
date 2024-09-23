@@ -3,7 +3,7 @@ name: Bring Your Own Data QnA
 inputs:
   question:
     type: string
-    default: How to use SDK V2?
+    default: what is The doctrine of precedent?
     is_chat_input: false
 outputs:
   output:

@@ -4,7 +4,7 @@ run_name=run_$(date +%Y%m%d_%H%M%S)
 echo "run name: $run_name"
 
 # create the run
-pfazure run create -f Woodside_Promptflow_RagQnA/flow.dag.yaml --name $run_name --stream 01
+#pfazure run flow -f Woodside_Promptflow_RagQnA/flow.dag.yaml --name $run_name --stream 01
 
 
 #pfazure run create --flow azureml:3461e079-6aa8-480d-9dd6-0c98e7c2e038 --data data/prompt_input/questions.jsonl --column-mapping chat_history='${data.chat_history}' question='${data.question}' --workspace-name dev01-ml --resource-group dev01 --name $run_name --stream

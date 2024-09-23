@@ -1,0 +1,27 @@
+[
+  {
+    "question": "What is binding precedent?",
+    "answer": "Binding precedent is a legal decision from higher courts that must be followed by lower courts within the same jurisdiction.",
+    "context": "Binding precedents ensure consistency and predictability in the law. A decision by the Supreme Court, for example, is binding on all lower courts in the same jurisdiction."
+  },
+  {
+    "question": "What is persuasive precedent?",
+    "answer": "Persuasive precedent refers to decisions from other jurisdictions or lower courts that are not binding but may be considered.",
+    "context": "Persuasive precedents might come from courts of the same level or from different countries. They are not binding but can influence decisions."
+  },
+  {
+    "question": "What does the doctrine of precedent ensure?",
+    "answer": "The doctrine of precedent ensures consistency and predictability in the legal system.",
+    "context": "Stare decisis is the principle that courts should follow established rulings to ensure legal continuity and stability."
+  },
+  {
+    "question": "What is the ratio decidendi?",
+    "answer": "The ratio decidendi is the legal principle or rule that forms the basis of a court’s decision.",
+    "context": "It is the binding part of a judicial decision that must be followed in future cases with similar facts."
+  },
+  {
+    "question": "What is the significance of the Farah Constructions principle?",
+    "answer": "The Farah Constructions principle emphasizes respect for intermediate appellate court decisions unless clearly wrong.",
+    "context": "Intermediate appellate courts must follow High Court principles and be cautious about overruling other appellate courts to maintain legal consistency."
+  }
+]

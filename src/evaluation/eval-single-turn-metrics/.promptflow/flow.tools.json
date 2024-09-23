@@ -1,0 +1,324 @@
+{
+  "package": {},
+  "code": {
+    "select_metrics.py": {
+      "type": "python",
+      "inputs": {
+        "metrics": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "select_metrics.py",
+      "function": "select_metrics"
+    },
+    "validate_input.py": {
+      "type": "python",
+      "inputs": {
+        "question": {
+          "type": [
+            "string"
+          ]
+        },
+        "answer": {
+          "type": [
+            "string"
+          ]
+        },
+        "context": {
+          "type": [
+            "string"
+          ]
+        },
+        "ground_truth": {
+          "type": [
+            "string"
+          ]
+        },
+        "selected_metrics": {
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "source": "validate_input.py",
+      "function": "validate_input"
+    },
+    "grounding.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "answer": {
+          "type": [
+            "string"
+          ]
+        },
+        "context": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "grounding.jinja2"
+    },
+    "answer_quality.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "question": {
+          "type": [
+            "string"
+          ]
+        },
+        "answer": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "answer_quality.jinja2"
+    },
+    "answer_similarity.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "answer": {
+          "type": [
+            "string"
+          ]
+        },
+        "question": {
+          "type": [
+            "string"
+          ]
+        },
+        "ground_truth": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "answer_similarity.jinja2"
+    },
+    "creativity.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "answer": {
+          "type": [
+            "string"
+          ]
+        },
+        "question": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "creativity.jinja2"
+    },
+    "context_recall.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "context": {
+          "type": [
+            "string"
+          ]
+        },
+        "question": {
+          "type": [
+            "string"
+          ]
+        },
+        "ground_truth": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "context_recall.jinja2"
+    },
+    "calculate_context_recall.py": {
+      "type": "python",
+      "inputs": {
+        "llm_result": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "calculate_context_recall.py",
+      "function": "calculate"
+    },
+    "context_precision.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "question": {
+          "type": [
+            "string"
+          ]
+        },
+        "context": {
+          "type": [
+            "string"
+          ]
+        },
+        "ground_truth": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "context_precision.jinja2"
+    },
+    "answer_relevance.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "answer": {
+          "type": [
+            "string"
+          ]
+        },
+        "context": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "answer_relevance.jinja2"
+    },
+    "handle_generated_question.py": {
+      "type": "python",
+      "inputs": {
+        "llm_result": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "handle_generated_question.py",
+      "function": "handle_generated_question"
+    },
+    "calculate_answer_relevance.py": {
+      "type": "python",
+      "inputs": {
+        "question_embedding": {
+          "type": [
+            "object"
+          ]
+        },
+        "generated_question_embedding": {
+          "type": [
+            "object"
+          ]
+        },
+        "noncommittal": {
+          "type": [
+            "bool"
+          ]
+        }
+      },
+      "source": "calculate_answer_relevance.py",
+      "function": "calculate"
+    },
+    "answer_correctness.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "question": {
+          "type": [
+            "string"
+          ]
+        },
+        "answer": {
+          "type": [
+            "string"
+          ]
+        },
+        "ground_truth": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "answer_correctness.jinja2"
+    },
+    "calculate_answer_correctness.py": {
+      "type": "python",
+      "inputs": {
+        "statement_result": {
+          "type": [
+            "string"
+          ]
+        },
+        "similarity_score": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "calculate_answer_correctness.py",
+      "function": "calculate"
+    },
+    "concat_scores.py": {
+      "type": "python",
+      "inputs": {
+        "answer_relevance": {
+          "type": [
+            "string"
+          ]
+        },
+        "answer_quality": {
+          "type": [
+            "string"
+          ]
+        },
+        "creativity": {
+          "type": [
+            "string"
+          ]
+        },
+        "grounding": {
+          "type": [
+            "string"
+          ]
+        },
+        "context_recall": {
+          "type": [
+            "string"
+          ]
+        },
+        "context_precision": {
+          "type": [
+            "string"
+          ]
+        },
+        "answer_similarity": {
+          "type": [
+            "string"
+          ]
+        },
+        "answer_correctness": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "concat_scores.py",
+      "function": "concat_results"
+    },
+    "aggregate.py": {
+      "type": "python",
+      "inputs": {
+        "results": {
+          "type": [
+            "object"
+          ]
+        },
+        "metrics": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "aggregate.py",
+      "function": "aggregate_variants_results"
+    }
+  }
+}

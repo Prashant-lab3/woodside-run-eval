@@ -18,12 +18,12 @@ nodes:
   inputs:
     mlindex_content: >
       embeddings:
-        api_base: https://azwelopenaiprd001.openai.azure.com/
+        api_base: https://lab3aisearch.search.windows.net
         api_type: azure
         api_version: '2024-02-01'
         batch_size: '1'
         connection:
-          id: /subscriptions/237241c4-9e84-4586-b532-a1cf09159dfa/resourceGroups/rg-aml/providers/Microsoft.MachineLearningServices/workspaces/aml-workspace003/connections/azure_open_ai_connection
+          id: /subscriptions/20dd0807-4bab-40e8-a83e-75a1f4548c29/resourceGroups/LAB3GPTDEVRG01/providers/Microsoft.CognitiveServices/accounts/LAB3GPTDEVOPENAI
         connection_type: workspace_connection
         deployment: text-embedding-ada-002
         dimension: 1536
@@ -33,9 +33,9 @@ nodes:
       index:
         api_version: '2023-11-01'
         connection:
-          id: /subscriptions/237241c4-9e84-4586-b532-a1cf09159dfa/resourceGroups/rg-aml/providers/Microsoft.MachineLearningServices/workspaces/aml-workspace003/connections/cognitive_search_connection
+          id: /subscriptions/20dd0807-4bab-40e8-a83e-75a1f4548c29/resourceGroups/LAB3GPTDEVRG01/providers/Microsoft.MachineLearningServices/workspaces/aml-workspace003/connections/cognitive_search_connection
         connection_type: workspace_connection
-        endpoint: https://azwel-search-prd-001.search.windows.net
+        endpoint: https://lab3aisearch.search.windows.net
         engine: azure-sdk
         field_mapping:
           content: content

@@ -21,17 +21,17 @@ pfazure run create --flow azureml:458c9b6c-f7f2-43ab-956f-092f89856b2f --data da
 #--workspace-name dev01-ml --resource-group dev01 --name "eval-groundedness-"$run_name --stream
 
 # evaluate the run eval-single-turn-metrics
-pfazure run create --flow azureml:b7d10f50-d7d1-49d3-94a4-84a9c77cd789 --data data/prompt_input/eval-single-turn-metrics.jsonl \
---column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' ground_truth='${data.ground_truth}' \
---name "eval-single-turn-metrics-"$run_name --stream
+#pfazure run create --flow azureml:b7d10f50-d7d1-49d3-94a4-84a9c77cd789 --data data/prompt_input/eval-single-turn-metrics.jsonl \
+#--column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' ground_truth='${data.ground_truth}' \
+#--name "eval-single-turn-metrics-"$run_name --stream
 
 
 # evaluate the run eval-perceived-intelligence
-pfazure run create --flow azureml:716c7b97-66f5-4cd1-bafd-ff28cb5fcacc --data data/prompt_input/eval-perceived-intelligence.jsonl \
---column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' \
---name "eval-perceived-intelligence"$run_name --stream
+#pfazure run create --flow azureml:716c7b97-66f5-4cd1-bafd-ff28cb5fcacc --data data/prompt_input/eval-perceived-intelligence.jsonl \
+#--column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' \
+#--name "eval-perceived-intelligence"$run_name --stream
 
 # evaluate the run eval-qna-non-rag
-pfazure run create --flow azureml:10e07953-77ca-4c82-bad1-d266713a6605 --data data/prompt_input/eval-qna-non-rag.jsonl \
---column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' ground_truth='${data.ground_truth}' \
---name "eval-qna-non-rag"$run_name --stream
+#pfazure run create --flow azureml:10e07953-77ca-4c82-bad1-d266713a6605 --data data/prompt_input/eval-qna-non-rag.jsonl \
+#--column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' ground_truth='${data.ground_truth}' \
+#--name "eval-qna-non-rag"$run_name --stream

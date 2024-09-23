@@ -2,8 +2,10 @@
 set -x
 run_name=run_$(date +%Y%m%d_%H%M%S)
 echo "run name: $run_name"
+
 # create the run
-#pfazure run create -f promptflow/rag_job.yaml --name $run_name --stream 01
+pfazure run create -f Woodside_Promptflow_RagQnA/flow.dag.yaml --name $run_name --stream 01
+
 
 #pfazure run create --flow azureml:3461e079-6aa8-480d-9dd6-0c98e7c2e038 --data data/prompt_input/questions.jsonl --column-mapping chat_history='${data.chat_history}' question='${data.question}' --workspace-name dev01-ml --resource-group dev01 --name $run_name --stream
 
@@ -12,7 +14,7 @@ echo "run name: $run_name"
 #--column-mapping question='${data.question}' context='${data.context}' answer='${run.outputs.output}' \
 #--run $run_name --stream
 
-pfazure run create --flow azureml:458c9b6c-f7f2-43ab-956f-092f89856b2f --data data/prompt_input/eval-groundedness.jsonl \
+pfazure run create --flow azureml:f7918996-180d-44bd-886c-9d79658bfd3e --data data/prompt_input/index_eval.jsonl \
 --column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' \
 --workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --name "eval-groundedness-"$run_name --stream
 

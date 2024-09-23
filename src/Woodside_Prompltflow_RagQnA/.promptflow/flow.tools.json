@@ -648,50 +648,59 @@
     "Prompt_variants.jinja2": {
       "type": "prompt",
       "inputs": {
-        "question": {
+        "contexts": {
           "type": [
             "string"
           ]
         },
-        "contexts": {
+        "question": {
           "type": [
             "string"
           ]
         }
       },
-      "source": "Prompt_variants.jinja2"
+      "is_builtin": false,
+      "name": "Prompt_variants.jinja2",
+      "source": "Prompt_variants.jinja2",
+      "toolId": "Prompt_variants.jinja2"
     },
     "Prompt_variants__variant_1.jinja2": {
       "type": "prompt",
       "inputs": {
-        "question": {
+        "contexts": {
           "type": [
             "string"
           ]
         },
-        "contexts": {
+        "question": {
           "type": [
             "string"
           ]
         }
       },
-      "source": "Prompt_variants__variant_1.jinja2"
+      "is_builtin": false,
+      "name": "Prompt_variants__variant_1.jinja2",
+      "source": "Prompt_variants__variant_1.jinja2",
+      "toolId": "Prompt_variants__variant_1.jinja2"
     },
     "Prompt_variants__variant_2.jinja2": {
       "type": "prompt",
       "inputs": {
-        "question": {
+        "contexts": {
           "type": [
             "string"
           ]
         },
-        "contexts": {
+        "question": {
           "type": [
             "string"
           ]
         }
       },
-      "source": "Prompt_variants__variant_2.jinja2"
+      "is_builtin": false,
+      "name": "Prompt_variants__variant_2.jinja2",
+      "source": "Prompt_variants__variant_2.jinja2",
+      "toolId": "Prompt_variants__variant_2.jinja2"
     },
     "answer_the_question_with_context.jinja2": {
       "type": "llm",
@@ -702,7 +711,10 @@
           ]
         }
       },
-      "source": "answer_the_question_with_context.jinja2"
+      "is_builtin": false,
+      "name": "answer_the_question_with_context.jinja2",
+      "source": "answer_the_question_with_context.jinja2",
+      "toolId": "answer_the_question_with_context.jinja2"
     }
   }
 }

@@ -17,19 +17,19 @@ echo "run name: $run_name"
 pfazure run show-metrics --name eval-groundedness-run_20240923_205824 --workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --subscription 20dd0807-4bab-40e8-a83e-75a1f4548c29
 
 
-pfazure run create --flow azureml:f7918996-180d-44bd-886c-9d79658bfd3e --data data/prompt_input/index_eval.jsonl \
---column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' \
---workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --name "eval-groundedness-"$run_name --stream
+#pfazure run create --flow azureml:f7918996-180d-44bd-886c-9d79658bfd3e --data data/prompt_input/index_eval.jsonl \
+#--column-mapping question='${data.question}' context='${data.context}' answer='${data.answer}' \
+#--workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --name "eval-groundedness-"$run_name --stream
 
  
 # Show metrics
-pfazure run show-metrics --name eval-groundedness-$run_name --workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --subscription 20dd0807-4bab-40e8-a83e-75a1f4548c29
+#pfazure run show-metrics --name eval-groundedness-$run_name --workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --subscription 20dd0807-4bab-40e8-a83e-75a1f4548c29
 
 # Show details
-pfazure run show-details --name eval-groundedness-$run_name --workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --subscription 20dd0807-4bab-40e8-a83e-75a1f4548c29
+#pfazure run show-details --name eval-groundedness-$run_name --workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --subscription 20dd0807-4bab-40e8-a83e-75a1f4548c29
 
 # Visualize run
-pfazure run visualize --name eval-groundedness-$run_name --workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --subscription 20dd0807-4bab-40e8-a83e-75a1f4548c29
+#pfazure run visualize --name eval-groundedness-$run_name --workspace-name labmltest02 --resource-group LAB3GPTDEVRG01 --subscription 20dd0807-4bab-40e8-a83e-75a1f4548c29
 
 
 #pfazure run create --flow azureml:68463d01-c901-468b-833f-04fd96300511 --data data/prompt_input/eval-groundedness.jsonl \

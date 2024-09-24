@@ -1,11 +1,11 @@
 inputs:
   question:
     type: string
-    default: What feeds all the fixtures in low voltage tracks instead of each light having a line-to-low voltage transformer?
+    default: What is Ratio Decidendi?
     is_chat_input: false
   answer:
     type: string
-    default: The main transformer is the object that feeds all the fixtures in low voltage tracks.
+    default: The ratio decidendi (Latin for "the reason for the decision") refers to the legal principle or rule that forms the basis of a court's decision.
     is_chat_input: false
 outputs:
   gpt_coherence:

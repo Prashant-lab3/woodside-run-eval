@@ -1,11 +1,11 @@
 inputs:
   question:
     type: string
-    default: What feeds all the fixtures in low voltage tracks instead of each light having a line-to-low voltage transformer?
+    default: what is Persuasive Precedent ?
     is_chat_input: false
   answer:
     type: string
-    default: The main transformer is the object that feeds all the fixtures in low voltage tracks.
+    default: These are decisions from courts in other jurisdictions or lower courts in the same jurisdiction that are not binding but can be considered and potentially followed.
     is_chat_input: false
 outputs:
   gpt_fluency:
